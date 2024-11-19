@@ -1,0 +1,9 @@
+{
+    "name": "tu/mi-proyecto",
+    "description": "Tu descripción aquí",
+    "type": "project",
+    "require": {
+        "smalot/pdfparser": "^2.11",
+        "phpoffice/phpword": "^1.3"
+    }
+}

@@ -1,0 +1,62 @@
+/* Estilos generales para el dashboard */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+    font-size: 2em;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.1em;
+}
+
+td {
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para las filas impares */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos de los bordes de la tabla */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Estilo para los contenedores de la tabla */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}

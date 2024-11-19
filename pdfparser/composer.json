@@ -1,0 +1,8 @@
+{
+    "name": "ana/cleanair",
+    "description": "Tu descripción aquí",
+    "type": "project",
+    "require": {
+        "smalot/pdfparser": "^1.0"
+    }
+}

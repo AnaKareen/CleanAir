@@ -1,0 +1,23 @@
+.iframe-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los elementos salten de línea si es necesario */
+    justify-content: space-between;
+    /* Espaciado entre los grupos */
+}
+
+.right {
+    margin-left: auto;
+    /* Alinea a la derecha */
+}
+
+.left {
+    margin-right: auto;
+    /* Alinea a la izquierda */
+}
+
+iframe {
+    border: none;
+    margin: 10px;
+    /* Espaciado entre los iframes */
+}
