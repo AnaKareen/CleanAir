@@ -132,28 +132,29 @@
             <h1>Medidores de aire en Mexico</h1>
             <p>Este indicador muestra de manera clara y visual cuán contaminado está el aire que respiramos, permitiendo a los usuarios
                  tomar decisiones informadas para proteger su salud y la de su comunidad.
-                  Utilizando datos de fuentes confiables como el Sistema Nacional de Información de la Calidad del Aire (SINAICA), este medidor no solo informa sobre la calidad del aire, sino que también educa sobre el impacto de los contaminantes en nuestra salud.</p>
-
-            
-
-
-
-
+                  Utilizando datos de fuentes confiables como el Sistema Nacional de Información de la Calidad del Aire (SINAICA),
+                   este medidor no solo informa sobre la calidad del aire, sino que también educa sobre el impacto de los 
+                   contaminantes en nuestra salud.
+            </p>
         </div>
     </div>
     <!----------------------------------------------------/Slide3--------------------------------------------------->
 
 
-    <!----------------------------------------------------CodeBy--------------------------------------------------->
-    <div id="codeby">
-        <a target="_blank" href="https://icodeayush.github.io/">Aire Limpio para vivir<span>CleanAir</span></a>
-    </div>
-    <!----------------------------------------------------/CodeBy--------------------------------------------------->
+
 
     <!-- gsap-latest-beta.min.js -->
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426'></script>
+    <script src="assets/script.js"></script>
     <!-- ScrollTrigger.min.js -->
 </body>
-<script src="assets/script.js"></script>
+<footer>
+        <!----------------------------------------------------CodeBy--------------------------------------------------->
+        <div id="codeby">
+        <a target="_blank" href="https://icodeayush.github.io/">Aire Limpio para vivir<span>CleanAir</span></a>
+    </div>
+    <!----------------------------------------------------/CodeBy--------------------------------------------------->
+</footer>
+
 
 </html>

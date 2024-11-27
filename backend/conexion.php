@@ -1,6 +1,4 @@
 <?php
-require 'vendor/autoload.php'; // Asegúrate de tener la biblioteca de MongoDB instalada
-
 // conexion.php
 
 // Datos de conexión a MongoDB
@@ -15,9 +13,8 @@ $uri = "mongodb+srv://$usuario:$contraseña@$servidor/$base_de_datos?retryWrites
 // Intentamos crear una nueva conexión con el MongoDB Driver
 try {
     // Crear la conexión a MongoDB usando el manager
-    $manager = new MongoDB\Driver\Manager($uri); // Establece la conexión
+    $manager = new MongoDB\Driver\Manager($uri);
 } catch (MongoDB\Driver\Exception\Exception $e) {
-    // Si hay un error con la conexión
     die("Error al conectar a MongoDB: " . $e->getMessage());
 }
 

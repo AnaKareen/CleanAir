@@ -6,7 +6,7 @@
   /* 1.618*4 */
   --ColorDarkB: hsl(0, 0%, 3.236%);
   /* 1.618*2 */
-  --ColorWhiteA: hsl(0, 0%, 93.528%);
+  --ColorWhiteA: #eeeeee;
   /* 100-6.472 */
   --ColorWhiteB: hsl(0, 0%, 90.292%);
   /* 1.618*6-100  */
@@ -877,4 +877,6 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  
+.welcome-message{
+  text-align: center;
+}

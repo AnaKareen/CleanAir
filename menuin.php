@@ -1,4 +1,14 @@
-<link rel="stylesheet" href="assets/dashboardg.css">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/dashboardg.css">
+    <title>Menú</title>
+</head>
+<body>
 <header class="header">
     <div class="header-content responsive-wrapper">
         <div class="header-logo">
@@ -8,17 +18,18 @@
         </div>
         <div class="header-navigation">
             <nav class="header-navigation-links">
-                <a href="#"> Home </a>
-                <a href="#"> Dashboard </a>
-                <a href="#"> Projects </a>
-                <a href="#"> Tasks </a>
-                <a href="#"> Reporting </a>
-                <a href="#"> Users </a>
+                <a href="index.php">Home</a>
+                <a href="dashboard.php">Dashboard</a>
+                <a href="Ciudad.php">Mi ciudad</a>
+                <a href="numEmergencia.php">Numeros de emergencia</a>
+                <a href="foros.php">Foros</a>
+                
             </nav>
             <div class="header-navigation-actions">
-                <a href="#" class="button">
+                <!-- Botón de cerrar sesión -->
+                <a href="backend/logout.php" class="button">
                     <i class="ph-lightning-bold"></i>
-                    <span>Upgrade now</span>
+                    <span>Cerrar sesión</span>
                 </a>
                 <a href="#" class="icon-button">
                     <i class="ph-gear-bold"></i>
@@ -27,7 +38,7 @@
                     <i class="ph-bell-bold"></i>
                 </a>
                 <a href="#" class="avatar">
-                    <img src="https://assets.codepen.io/285131/hat-man.png" alt="" />
+                    <img src="https://assets.codepen.io/285131/hat-man.png" alt="Avatar">
                 </a>
             </div>
         </div>
@@ -37,3 +48,5 @@
         </a>
     </div>
 </header>
+</body>
+</html>

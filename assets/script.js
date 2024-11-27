@@ -2,21 +2,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 //---------------------Landing Page ScrollTrigger---------------------
 function LandingPageScrollTrigger() {
-
-    gsap.to('body', { // LoadingAnimation---------------------
+    gsap.to('body', { // LoadingAnimation
         opacity: 1, duration: 0,
-    }) // /LoadingAnimation---------------------
+    }); // /LoadingAnimation
 
-    let LandingPageScrollTrigger = gsap.timeline({
+    let landingPageTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: ".landingPage",
             toggleActions: "restart restart restart restart",
             start: "0% 100%",
             end: "50% 0%",
-            // markers: "true",
+            // markers: true, // Puedes activar los marcadores para depuración
         }
-    })
-    LandingPageScrollTrigger
+    });
+
+    landingPageTimeline
         .from('.landingPage #logo', {
             opacity: 0, x: "-31%", duration: 2.2, ease: "sine.in",
         }, 0)
@@ -40,75 +40,36 @@ function LandingPageScrollTrigger() {
         }, 1.6)
         .from('.landingPage #dl', {
             opacity: 0, x: "22%", duration: 2.2, ease: "sine.inOut",
-        }, 0.4)
+        }, 0.4);
 }
 //---------------------/Landing Page ScrollTrigger---------------------
 
 //---------------------Slider ScrollTrigger---------------------
 function SliderScrollTrigger() {
+    const slides = ['.slide1', '.slide2', '.slide3'];
 
-    let Slide1 = gsap.timeline({ // Slide1---------------------
-        scrollTrigger: {
-            trigger: ".slide1",
-            start: "100% 100%",
-            end: "300% 0%",
-            // markers: "true",
-            scrub: 2.2,
-            pin: ".slide1",
-        }
-    })
-    Slide1
-        .from('.slide1 #slide h1', {
-            opacity: 0, x: "-22%",
-        })
-        .from('.slide1 #slide p', {
-            opacity: 0, y: "22%",
-        })
-        .from('.slide1 #ImageContainer', {
-            opacity: 0, y: "22%",
-        }) // Slide1---------------------
+    slides.forEach(slide => {
+        let slideTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: slide,
+                start: "100% 100%",
+                end: "300% 0%",
+                scrub: 2.2,
+                pin: slide,
+            }
+        });
 
-    let Slide2 = gsap.timeline({ // Slide2---------------------
-        scrollTrigger: {
-            trigger: ".slide2",
-            start: "100% 100%",
-            end: "300% 0%",
-            // markers: "true",
-            scrub: 2.2,
-            pin: ".slide2",
-        }
-    })
-    Slide2
-        .from('.slide2 #slide h1', {
-            opacity: 0, x: "-22%",
-        })
-        .from('.slide2 #slide p', {
-            opacity: 0, y: "22%",
-        })
-        .from('.slide2 #ImageContainer', {
-            opacity: 0, y: "22%",
-        }) // Slide2---------------------
-
-    let Slide3 = gsap.timeline({ // Slide3---------------------
-        scrollTrigger: {
-            trigger: ".slide3",
-            start: "100% 100%",
-            end: "300% 0%",
-            // markers: "true",
-            scrub: 2.2,
-            pin: ".slide3",
-        }
-    })
-    Slide3
-        .from('.slide3 #slide h1', {
-            opacity: 0, x: "-22%",
-        })
-        .from('.slide3 #slide p', {
-            opacity: 0, y: "22%",
-        })
-        .from('.slide3 #ImageContainer', {
-            opacity: 0, y: "22%",
-        }) // Slide3---------------------
+        slideTimeline
+            .from(`${slide} #slide h1`, {
+                opacity: 0, x: "-22%",
+            })
+            .from(`${slide} #slide p`, {
+                opacity: 0, y: "22%",
+            })
+            .from(`${slide} #ImageContainer`, {
+                opacity: 0, y: "22%",
+            });
+    });
 
     let iCodeAyush = gsap.timeline({
         scrollTrigger: {
@@ -116,47 +77,69 @@ function SliderScrollTrigger() {
             toggleActions: "restart restart restart restart",
             start: "48.618% 100%",
             end: "100% 0%",
-            // markers: "true",
+            // markers: true, // Puedes activar los marcadores para depuración
         }
-    })
-    iCodeAyush
-        .from('#codeby a', {
-            opacity: 0, y: "130%", duration: 2.2, ease: "sine",
-        }) // iCodeAyush---------------------
+    });
+
+    iCodeAyush.from('#codeby a', {
+        opacity: 0, y: "130%", duration: 2.2, ease: "sine",
+    });
 }
 //---------------------/Slider ScrollTrigger---------------------
 
-/*-------------Navbar (max-width: 400px)------------- */
+//-------------Navbar (max-width: 400px)-------------
 function Navbar() {
     gsap.from('#wrapper #Navbar', {
         opacity: 0, x: "40%", duration: 2.2, ease: "sine.in",
-    })
-    var NavAni = gsap.timeline();
-    NavAni.from('#wrapper nav', {
-        opacity: 0, y: "13%", duration: 0.5, ease: "sine",
-    })
-        .reverse();
-    $("#wrapper #Navbar").click(function () {
-        $("#wrapper nav").toggleClass("DisplayNone");
-        NavAni.reversed(!NavAni.reversed());
     });
+
+    var navAni = gsap.timeline();
+    navAni.from('#wrapper nav', {
+        opacity: 0, y: "13%", duration: 0.5, ease: "sine",
+    }).reverse();
+
+    const navbar = document.querySelector("#wrapper #Navbar");
+    if (navbar) {
+        navbar.addEventListener("click", function () {
+            const nav = document.querySelector("#wrapper nav");
+            if (nav) {
+                nav.classList.toggle("DisplayNone");
+                navAni.reversed(!navAni.reversed ());
+            }
+        });
+    } else {
+        console.error('Navbar no encontrado');
+    }
 }
-/*-------------/Navbar (max-width: 400px)------------- */
+//-------------/Navbar (max-width: 400px)-------------
 
 window.onload = () => {
-    LandingPageScrollTrigger()
-    SliderScrollTrigger()
+    LandingPageScrollTrigger();
+    SliderScrollTrigger();
     if (window.matchMedia("(max-width: 400px)").matches) {
-        Navbar()
-    } else {
+        Navbar();
     }
 }
 
 // graficas
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM completamente cargado');
+    
     const radios = document.querySelectorAll('input[type="radio"]');
     const valuesElements = document.querySelectorAll('.chart .values .value');
-    
+
+    // Verifica que se hayan encontrado los elementos de radio
+    if (radios.length === 0) {
+        console.error('No se encontraron radios en el DOM.');
+        return; // Salir si no hay radios
+    }
+
+    // Verifica que se hayan encontrado los elementos de valores
+    if (valuesElements.length === 0) {
+        console.error('No se encontraron elementos de valores en el DOM.');
+        return; // Salir si no hay elementos de valores
+    }
+
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
             const species = this.id; // Obtener la especie seleccionada
@@ -167,7 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function fetchChartData(species) {
         // Petición AJAX para obtener los datos de la base de datos
         fetch(`/getChartData?species=${species}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => updateChart(data))
             .catch(error => console.error('Error fetching data:', error));
     }
@@ -186,5 +174,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Inicializar el gráfico con la especie seleccionada por defecto
-    fetchChartData(document.querySelector('input[name="species"]:checked').id);
+    const defaultSpecies = document.querySelector('input[name="species"]:checked');
+    if (defaultSpecies) {
+        fetchChartData(defaultSpecies.id);
+    } else {
+        console.error('No se encontró ninguna especie seleccionada por defecto.');
+    }
 });

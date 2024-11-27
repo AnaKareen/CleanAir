@@ -1,3 +1,14 @@
+<?php
+include 'backend/conexion.php';
+session_start(); // Inicia la sesión
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php"); // Redirige a la página de inicio de sesión
+    exit();
+}
+?>
+
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Montserrat&display=swap" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +25,15 @@
 </head>
 <body>
 <?php include 'menuin.php'; ?>
-
-<!-- Primera gráfica -->
+<!-- Mapa -->
 <iframe 
-    src="https://graficasrstudio.shinyapps.io/excedecalidad/" 
+    src="https://graficasrstudio.shinyapps.io/mapa/" 
     width="1000" 
-    height="600" 
-    style="border:none; display:block; margin:0 auto;">
+    height="700" 
+    style="border:none; display: block; margin: 20px auto 0;">
 </iframe>
+
+
 
 <!-- Gráficas en flexbox -->
 <div style="display: flex; align-items: flex-start; margin-top: 10px;">
@@ -49,14 +61,14 @@
     </div>
 </div>
 
-<!-- Mapa -->
+
+<!-- Primera gráfica -->
 <iframe 
-    src="https://graficasrstudio.shinyapps.io/mapa/" 
+    src="https://graficasrstudio.shinyapps.io/excedecalidad/" 
     width="1000" 
     height="600" 
-    style="border:none; display: block; margin: 20px auto 0;">
+    style="border:none; display:block; margin:0 auto;">
 </iframe>
-
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/data.js"></script>
 <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
